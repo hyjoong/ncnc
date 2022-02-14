@@ -1,8 +1,8 @@
-import { CategoryData } from "./../types/index";
+import { CategoryListType } from "./../types/index";
 import { instance } from "./axios";
 
 export const getCategory = async () => {
-  const response = await instance.get<CategoryData[]>(`/con-category1s`);
+  const response = await instance.get<CategoryListType>(`/con-category1s`);
   if (response.status !== 200) {
     throw { status: response.status };
   }

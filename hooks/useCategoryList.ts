@@ -8,7 +8,7 @@ const useCategoryList = () => {
 
   const { loading, responseOK } = useRequest(async () => {
     const response = await getCategory();
-    setResults(response.data);
+    setResults(response.data.conCategory1s);
   });
 
   return { results, loading, responseOK };
