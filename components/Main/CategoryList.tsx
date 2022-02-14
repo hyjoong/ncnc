@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import useCategoryList from "hooks/useCategoryList";
 import GridLayout from "components/Layout/GridLayout";
+import CategoryItem from "components/common/CategoryItem";
 
 const CategoryList = () => {
   const { results, loading, responseOK } = useCategoryList();
@@ -22,24 +23,15 @@ const CategoryList = () => {
   return (
     <GridLayout>
       {results.map((item, index) => (
-        <CategoryItem key={index}>
-          <ItemImg src={item.imageUrl} />
-          <ItemName>{item.name}</ItemName>
-        </CategoryItem>
+        <CategoryItem
+          key={index}
+          thumbnail={item.imageUrl}
+          name={item.name}
+        ></CategoryItem>
       ))}
     </GridLayout>
   );
 };
-
-const CategoryItem = styled.div`
-  border-radius: 5px;
-  background-color: white;
-  height: 94px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
 
 const ItemImg = styled.img`
   width: 40px;
