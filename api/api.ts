@@ -17,6 +17,14 @@ export const getList = async () => {
   return response;
 };
 
+export const getBrands = async () => {
+  const response = await instance.get(`/con-category1s/67/nested`);
+  if (response.status !== 200) {
+    throw { status: response.status };
+  }
+  return response;
+};
+
 export const getProductDetail = async (id: number) => {
   const response = await instance.get(`con-items/${id}`);
   if (response.status !== 200) {
