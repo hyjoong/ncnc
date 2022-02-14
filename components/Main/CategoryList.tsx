@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useCategoryList from "hooks/useCategoryList";
+import GridLayout from "components/Layout/GridLayout";
 
 const CategoryList = () => {
   const { results, loading, responseOK } = useCategoryList();
@@ -19,25 +20,16 @@ const CategoryList = () => {
 
   console.log(results);
   return (
-    <CategoryWrapper>
+    <GridLayout>
       {results.map((item, index) => (
         <CategoryItem key={index}>
           <ItemImg src={item.imageUrl} />
           <ItemName>{item.name}</ItemName>
         </CategoryItem>
       ))}
-    </CategoryWrapper>
+    </GridLayout>
   );
 };
-
-const CategoryWrapper = styled.section`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 2px;
-  column-gap: 2px;
-  margin: 2rem;
-  border: 1px solid black;
-`;
 
 const CategoryItem = styled.div`
   border-radius: 5px;
