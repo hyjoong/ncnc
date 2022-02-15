@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CategoryList from "components/Main/CategoryList";
+import Header from "components/common/Header";
 import { getCategory } from "api/api";
 import { CategoryData } from "types";
 
@@ -10,9 +11,12 @@ interface IProps {
 const Index = ({ categories }: IProps) => {
   console.log(categories);
   return (
-    <MainWrapper>
-      <CategoryList categories={categories} />
-    </MainWrapper>
+    <>
+      <MainWrapper>
+        <Header title="니콘내콘" icon="☰" />
+        <CategoryList categories={categories} />
+      </MainWrapper>
+    </>
   );
 };
 

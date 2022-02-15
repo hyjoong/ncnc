@@ -1,11 +1,11 @@
 import React from "react";
-import { useRouter } from "next/dist/client/router";
 import styled from "styled-components";
-import { getBrand } from "api/api";
 import { GetServerSideProps } from "next";
-import BrandList from "components/CafeBrand/BrandList";
-import { CategoryListType, CategoryData } from "types";
+import { getBrand } from "api/api";
+import BrandList from "components/Brand/BrandList";
+import { CategoryData } from "types";
 import Header from "components/common/Header";
+import BrandHeader from "components/Brand/BrandHeader";
 
 interface IProps {
   brands: CategoryData[];
@@ -16,6 +16,7 @@ const Brand = ({ brands, title }: IProps) => {
   return (
     <Wrapper>
       <Header title={title} />
+      <BrandHeader />
       <BrandList brands={brands} />
     </Wrapper>
   );
@@ -30,11 +31,8 @@ const Wrapper = styled.div`
   background-color: #f1f3f4;
 `;
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  //const { id } = router.query;
   const { params } = context.params;
-  console.log(params);
   const id = context.params.id;
-  console.log(id);
   const response = await getBrand(Number(id));
 
   return {
