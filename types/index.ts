@@ -1,5 +1,12 @@
-export interface CategoryList {
+export interface CategoryListType {
   conCategory1s: CategoryData[];
+}
+
+export interface BrandListType {
+  conCategory1: {
+    conCategory2s: CategoryData[];
+    name: string;
+  };
 }
 
 export interface CategoryData {
