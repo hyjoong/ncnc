@@ -1,14 +1,21 @@
 import React from "react";
 import styled from "styled-components";
+import { useRouter } from "next/dist/client/router";
+import Link from "next/link";
 
 interface IProps {
   thumbnail: string;
+  id: number;
   name: string;
 }
 
-const CategoryItem = ({ thumbnail, name }: IProps) => {
+const CategoryItem = ({ thumbnail, id, name }: IProps) => {
+  const router = useRouter();
+  const handlePage = (id: number) => {
+    router.push(`/brand/${id}`);
+  };
   return (
-    <CategoryBox>
+    <CategoryBox onClick={() => handlePage(id)}>
       <ItemImg src={thumbnail} />
       <ItemName>{name}</ItemName>
     </CategoryBox>
@@ -22,6 +29,7 @@ const CategoryBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 `;
 const ItemImg = styled.img`
   width: 40px;

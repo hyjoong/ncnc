@@ -1,4 +1,4 @@
-import { CategoryListType } from "./../types/index";
+import { CategoryListType, BrandListType } from "./../types/index";
 import { instance } from "./axios";
 
 export const getCategory = async () => {
@@ -6,7 +6,7 @@ export const getCategory = async () => {
   if (response.status !== 200) {
     throw { status: response.status };
   }
-  return response;
+  return response.data;
 };
 
 export const getList = async () => {
@@ -17,12 +17,14 @@ export const getList = async () => {
   return response;
 };
 
-export const getBrands = async () => {
-  const response = await instance.get(`/con-category1s/67/nested`);
+export const getBrand = async (id: number) => {
+  const response = await instance.get<BrandListType>(
+    `/con-category1s/${id}/nested`
+  );
   if (response.status !== 200) {
     throw { status: response.status };
   }
-  return response;
+  return response.data;
 };
 
 export const getProductDetail = async (id: number) => {
