@@ -28,11 +28,19 @@ export const getBrand = async (id: number) => {
 };
 
 export const getProductDetail = async (id: number) => {
-  const response = await instance.get(`con-items/${id}`);
+  const response = await instance.get(`con-items/?conCategory2Id=${id}`);
   if (response.status !== 200) {
     throw { status: response.status };
   }
-  return response;
+  return response.data;
+};
+
+export const getBrandTitle = async (id: number) => {
+  const response = await instance.get(`con-category2s/${id}`);
+  if (response.status !== 200) {
+    throw { status: response.status };
+  }
+  return response.data;
 };
 
 export const getFAQType = async () => {
