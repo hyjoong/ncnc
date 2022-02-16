@@ -1,3 +1,4 @@
+import { Option } from "./index";
 export interface ConOneType {
   id: number;
   name: string;
@@ -35,5 +36,5 @@ export type DetailType = {
   conCategory2Id: number;
   imageUrl: string;
   conCategory2: ConTwoType;
-  options: ConOneType[];
+  options: Option[];
 };

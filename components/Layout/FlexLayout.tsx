@@ -12,6 +12,7 @@ const FlexLayout = ({ children }: IProps) => {
 const GridWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  padding-top: 5rem;
 `;
 
 export default FlexLayout;

@@ -17,26 +17,26 @@ const ItemDetail = ({ item }: IProps) => {
   };
   return (
     <DetailContainer isMenu={isMenu}>
-      <DetailTitle>브랜드 별 유의사항</DetailTitle>
-      <DetailInfo>{item.conCategory2.info}</DetailInfo>
-      <DetailInfo>{item.warning}</DetailInfo>
-      <OptionBox isMenu={isMenu} onClick={handleMenu} />
+      <DetailContent>
+        <DetailTitle>브랜드 별 유의사항</DetailTitle>
+        <DetailInfo>{item.conCategory2.info}</DetailInfo>
+        <DetailInfo>{item.warning}</DetailInfo>
+      </DetailContent>
+
+      <OptionBox isMenu={isMenu} onClick={handleMenu} lists={item.options} />
     </DetailContainer>
   );
 };
 
 const DetailContainer = styled.div<{ isMenu: boolean }>`
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  ${({ isMenu }) =>
-    isMenu
-      ? css`
-          background-color: rgba(0, 0, 0, 0.4);
-        `
-      : css`
-          background-color: #ffffff;
-        `}
+`;
+
+const DetailContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 `;
 
 const DetailTitle = styled.span`

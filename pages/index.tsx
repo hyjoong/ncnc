@@ -23,6 +23,7 @@ const Index = ({ categories }: IProps) => {
 
 const MainWrapper = styled.div`
   max-width: 627px;
+  height: 93vh;
   background-color: #f1f3f4;
   margin: 0 auto;
 `;
