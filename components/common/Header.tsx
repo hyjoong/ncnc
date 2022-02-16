@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useRouter } from "next/dist/client/router";
+import MenuIcon from "components/icons/memuIcon";
+import BackIcon from "components/icons/backIcon";
 
 interface IProps {
-  title?: string;
-  icon: string;
+  title: string;
+  icon?: string;
 }
 
 const Header = ({ title, icon }: any) => {
@@ -14,14 +16,18 @@ const Header = ({ title, icon }: any) => {
   };
   return (
     <HeaderWrapper>
-      {icon ? (
-        <MenuButton>{icon}</MenuButton>
+      {icon === "menu" ? (
+        <MenuButton>
+          <MenuIcon />
+        </MenuButton>
       ) : (
-        <HeaderLeft onClick={handleBack}>◀</HeaderLeft>
+        <MenuButton onClick={() => router.back()}>
+          <BackIcon />
+        </MenuButton>
       )}
 
       <HeaderTitle>{title}</HeaderTitle>
-      <HeaderRight></HeaderRight>
+      <MenuButton></MenuButton>
     </HeaderWrapper>
   );
 };
@@ -35,7 +41,9 @@ const HeaderWrapper = styled.div`
   background-color: white;
 `;
 
-const MenuButton = styled.button``;
+const MenuButton = styled.button`
+  margin-left: 40px;
+`;
 
 const HeaderLeft = styled.button`
   font-weight: 600;
