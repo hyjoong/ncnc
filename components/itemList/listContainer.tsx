@@ -12,7 +12,7 @@ const ListContainer = ({ items }: IProps) => {
   return (
     <FlexLayout>
       {items?.map((item, index) => (
-        <ListItem key={index} item={item} />
+        <ListItem key={index} item={item} id={item.id} type="items" />
       ))}
     </FlexLayout>
   );

@@ -1,16 +1,28 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { BrandItem } from "types";
+import { useRouter } from "next/dist/client/router";
 
 interface ItemProps {
   item: BrandItem;
+  id: number;
+  type: string;
 }
 
 interface IProps extends ItemProps {}
 
-const ListItem = ({ item }: IProps) => {
+const ListItem = ({ item, type, id }: IProps) => {
+  const HandlePage = () => {
+    if (type !== "detail") {
+      router.push(`/${type}/${id}`);
+    } else {
+      return;
+    }
+  };
+
+  const router = useRouter();
   return (
-    <CategoryBox>
+    <CategoryBox onClick={HandlePage} type={type}>
       <ItemImg src={item.imageUrl} />
       <ItemContent>
         <ItemName>{item.name}</ItemName>
@@ -26,14 +38,18 @@ const ListItem = ({ item }: IProps) => {
   );
 };
 
-const CategoryBox = styled.div`
+const CategoryBox = styled.div<{ type: string }>`
   display: flex;
   border-radius: 5px;
   padding: 20px 30px;
   background-color: white;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   align-items: center;
-  cursor: pointer;
+  ${({ type }) =>
+    type !== "detail" &&
+    css`
+      cursor: pointer;
+    `}
 `;
 const ItemImg = styled.img`
   width: 70px;

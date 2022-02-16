@@ -37,8 +37,9 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   background-color: white;
+  border-bottom: 1px solid #eee;
 `;
 
 const MenuButton = styled.button`

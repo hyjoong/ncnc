@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "components/common/Header";
 import { GetServerSideProps } from "next";
-import { getProductDetail, getBrandTitle } from "api/api";
+import { getProductList, getBrandTitle } from "api/api";
 import ListContainer from "components/itemList/listContainer";
 import { BrandItem } from "types";
 
@@ -20,20 +20,18 @@ const ItemList = ({ items, title }: IProps) => {
   );
 };
 
-export default ItemList;
-
 const Wrapper = styled.div`
   max-width: 627px;
   height: 1000px;
   padding-bottom: 5rem;
-  margin: 0 auto;
+  margin: 0 auto; 
   background-color: white;
 `;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const id = context.params.id;
-  const res: any = await getBrandTitle(Number(id));
-  const response: any = await getProductDetail(Number(id));
+  const res = await getBrandTitle(Number(id));
+  const response = await getProductList(Number(id));
 
   return {
     props: {
@@ -42,3 +40,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   };
 };
+
+export default ItemList;
