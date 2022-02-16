@@ -39,6 +39,24 @@ export interface BrandItem {
   warning: string;
 }
 
+export interface ItemsList {
+  conItems: BrandItem[];
+}
+
+export interface Option {
+  count: number;
+  expireAt: string;
+  sellingPrice: string;
+}
+
+export interface ProductItem extends BrandItem {
+  options: Option[];
+}
+
+export interface ProductDetail {
+  conItem: ProductItem;
+}
+
 export interface ConItem {
   id: number;
   name: string;
@@ -59,6 +77,10 @@ export interface ConItem {
   isOnlyAccount: number;
   conCategory2Id: string;
   imageUrl: string;
+}
+
+export interface BrandTitle {
+  conCategory2: BrandType;
 }
 
 export interface faType {
