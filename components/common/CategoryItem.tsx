@@ -7,18 +7,17 @@ interface IProps {
   thumbnail: string;
   id: number;
   name: string;
+  type?: string;
 }
 
-const CategoryItem = ({ thumbnail, id, name }: IProps) => {
-  const router = useRouter();
-  const handlePage = (id: number) => {
-    router.push(`/brand/${id}`);
-  };
+const CategoryItem = ({ thumbnail, id, name, type }: IProps) => {
   return (
-    <CategoryBox onClick={() => handlePage(id)}>
-      <ItemImg src={thumbnail} />
-      <ItemName>{name}</ItemName>
-    </CategoryBox>
+    <Link href={`/${type}/${id}`} passHref>
+      <CategoryBox>
+        <ItemImg src={thumbnail} />
+        <ItemName>{name}</ItemName>
+      </CategoryBox>
+    </Link>
   );
 };
 const CategoryBox = styled.div`

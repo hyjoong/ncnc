@@ -14,7 +14,9 @@ const CategoryList = ({ categories }: IProps) => {
         <CategoryItem
           key={index}
           thumbnail={item.imageUrl}
+          id={item.id}
           name={item.name}
+          type="brand"
         ></CategoryItem>
       ))}
     </GridLayout>
