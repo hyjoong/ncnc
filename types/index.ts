@@ -16,6 +16,29 @@ export interface CategoryData {
   imageUrl: string;
 }
 
+export interface BrandType {
+  id: number;
+  imageUrl: string;
+  name: string;
+  conCategory1Id: BrandItem[];
+}
+
+export interface BrandItem {
+  conCategory2Id?: number;
+  discountRate: number;
+  id: number;
+  imageUrl: string;
+  info: string | null;
+  information: string | null;
+  isOnlyAccount: number;
+  minSellingPrice: number;
+  name: string;
+  ncSellingPrice: number;
+  originalPrice: number;
+  tip: string;
+  warning: string;
+}
+
 export interface ConItem {
   id: number;
   name: string;

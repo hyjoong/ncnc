@@ -1,11 +1,10 @@
 import React from "react";
-import useBrandList from "hooks/useBrandList";
 import GridLayout from "components/Layout/GridLayout";
 import CategoryItem from "components/common/CategoryItem";
-import { CategoryData } from "types";
+import { BrandType } from "types";
 
 interface IProps {
-  brands: CategoryData[];
+  brands: BrandType[];
 }
 
 const BrandList = ({ brands }: IProps) => {
@@ -17,6 +16,7 @@ const BrandList = ({ brands }: IProps) => {
           thumbnail={item.imageUrl}
           id={item.id}
           name={item.name}
+          type="itemlist"
         />
       ))}
     </GridLayout>
