@@ -1,26 +1,42 @@
-import React from "react";
-import styled from "styled-components";
-import { ProductItem } from "types";
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
+import OptionBox from "./optionBox";
+import { DetailType } from "types/detail";
 
 interface IProps {
-  item: any;
+  item: DetailType;
 }
 
 const ItemDetail = ({ item }: IProps) => {
   console.log("hi 유의", item);
+  const [isMenu, setIsMenu] = useState<boolean>(false);
+  const [isSelect, setIsSelect] = useState<boolean>(false);
+
+  const handleMenu = () => {
+    setIsMenu(!isMenu);
+  };
   return (
-    <DetailContainer>
+    <DetailContainer isMenu={isMenu}>
       <DetailTitle>브랜드 별 유의사항</DetailTitle>
       <DetailInfo>{item.conCategory2.info}</DetailInfo>
       <DetailInfo>{item.warning}</DetailInfo>
+      <OptionBox isMenu={isMenu} onClick={handleMenu} />
     </DetailContainer>
   );
 };
 
-const DetailContainer = styled.div`
+const DetailContainer = styled.div<{ isMenu: boolean }>`
   padding: 20px;
   display: flex;
   flex-direction: column;
+  ${({ isMenu }) =>
+    isMenu
+      ? css`
+          background-color: rgba(0, 0, 0, 0.4);
+        `
+      : css`
+          background-color: #ffffff;
+        `}
 `;
 
 const DetailTitle = styled.span`
@@ -35,7 +51,4 @@ const DetailInfo = styled.span`
   margin-bottom: 2rem;
 `;
 
-const DetailSubTitle = styled.span``;
-
-const DetailWarning = styled.span``;
 export default ItemDetail;

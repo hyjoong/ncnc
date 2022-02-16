@@ -9,7 +9,7 @@ interface IProps {
   icon?: string;
 }
 
-const Header = ({ title, icon }: any) => {
+const Header = ({ title, icon }: IProps) => {
   const router = useRouter();
   const handleBack = () => {
     router.back();
@@ -33,10 +33,11 @@ const Header = ({ title, icon }: any) => {
 };
 
 const HeaderWrapper = styled.div`
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 627px;
   height: 4rem;
   background-color: white;
   border-bottom: 1px solid #eee;
@@ -46,14 +47,8 @@ const MenuButton = styled.button`
   margin-left: 40px;
 `;
 
-const HeaderLeft = styled.button`
-  font-weight: 600;
-`;
-
 const HeaderTitle = styled.div`
   font-weight: 600;
 `;
-
-const HeaderRight = styled.div``;
 
 export default Header;

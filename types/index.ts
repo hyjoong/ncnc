@@ -20,11 +20,12 @@ export interface BrandType {
   id: number;
   imageUrl: string;
   name: string;
-  conCategory1Id: BrandItem[];
+  conItems: BrandItem[];
+  conCategory1Id: number;
 }
 
 export interface BrandItem {
-  conCategory2Id?: number;
+  conCategory2Id: number;
   discountRate: number;
   id: number;
   imageUrl: string;

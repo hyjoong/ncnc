@@ -1,15 +1,14 @@
 import React from "react";
-import { ProductItem } from "types";
 import ListItem from "components/itemList/listItem";
 import FlexLayout from "components/Layout/FlexLayout";
 import ItemDetail from "./ItemDetail";
+import { DetailType } from "types/detail";
 
 interface IProps {
-  item: ProductItem;
+  item: DetailType;
 }
 
 const ItemContainer = ({ item }: IProps) => {
-  console.log(item);
   return (
     <FlexLayout>
       <ListItem id={item.id} item={item} type="detail" />

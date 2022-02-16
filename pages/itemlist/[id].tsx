@@ -4,10 +4,10 @@ import Header from "components/common/Header";
 import { GetServerSideProps } from "next";
 import { getProductList, getBrandTitle } from "api/api";
 import ListContainer from "components/itemList/listContainer";
-import { BrandItem } from "types";
+import { BrandType } from "types";
 
 interface IProps {
-  items: BrandItem[];
+  items: BrandType;
   title: string;
 }
 
@@ -22,9 +22,9 @@ const ItemList = ({ items, title }: IProps) => {
 
 const Wrapper = styled.div`
   max-width: 627px;
-  height: 1000px;
+  height: 93vh;
   padding-bottom: 5rem;
-  margin: 0 auto; 
+  margin: 0 auto;
   background-color: white;
 `;
 
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       title: res.conCategory2.name,
-      items: response.conItems,
+      items: response,
     },
   };
 };

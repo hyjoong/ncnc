@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { GetServerSideProps } from "next";
 import { getProductDetail } from "api/api";
-import { ProductItem } from "types";
 import ItemContainer from "components/Item/ItemContainer";
 import Header from "components/common/Header";
+import { DetailType } from "types/detail";
 
 interface IProps {
-  item: ProductItem;
+  item: DetailType;
 }
 
 const Items = ({ item }: IProps) => {
@@ -21,7 +21,7 @@ const Items = ({ item }: IProps) => {
 
 const Wrapper = styled.div`
   max-width: 627px;
-  height: 1000px;
+  height: 93vh;
   padding-bottom: 5rem;
   margin: 0 auto;
   background-color: white;

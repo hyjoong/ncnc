@@ -25,6 +25,7 @@ export default Brand;
 
 const Wrapper = styled.div`
   max-width: 627px;
+  height: 93vh;
   padding-bottom: 5rem;
   margin: 0 auto;
   background-color: #f1f3f4;

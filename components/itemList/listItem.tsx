@@ -3,13 +3,11 @@ import styled, { css } from "styled-components";
 import { BrandItem } from "types";
 import { useRouter } from "next/dist/client/router";
 
-interface ItemProps {
+interface IProps {
   item: BrandItem;
   id: number;
   type: string;
 }
-
-interface IProps extends ItemProps {}
 
 const ListItem = ({ item, type, id }: IProps) => {
   const HandlePage = () => {

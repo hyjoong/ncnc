@@ -1,3 +1,4 @@
+import { DetailType } from "./../types/detail";
 import {
   CategoryListType,
   BrandListType,
@@ -44,7 +45,9 @@ export const getProductList = async (id: number) => {
 };
 
 export const getProductDetail = async (id: number) => {
-  const response = await instance.get<ProductDetail>(`con-items/${id}`);
+  const response = await instance.get<{ conItem: DetailType }>(
+    `con-items/${id}`
+  );
   if (response.status !== 200) {
     throw { status: response.status };
   }
