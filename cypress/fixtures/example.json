@@ -1,5 +1,23 @@
-{
-  "name": "Using fixtures to represent data",
-  "email": "hello@cypress.io",
-  "body": "Fixtures are a great way to mock data for responses to routes"
-}
+[
+  {
+    "conCategoryId": 67,
+    "conItems": [{}, {}],
+    "id": 62,
+    "imageUrl": "sanpleUrl1.com",
+    "name": "스타벅스"
+  },
+  {
+    "conCategoryId": 32,
+    "conItems": [{}, {}],
+    "id": 52,
+    "imageUrl": "sanpleUrl2.com",
+    "name": "할리스"
+  },
+  {
+    "conCategoryId": 84,
+    "conItems": [{}, {}],
+    "id": 33,
+    "imageUrl": "sanpleUrl3.com",
+    "name": "커피빈"
+  }
+]
