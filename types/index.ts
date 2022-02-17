@@ -95,3 +95,7 @@ export interface faContent {
   question: string;
   answer: string;
 }
+
+export interface SaleItem {
+  conItems: BrandItem[];
+}

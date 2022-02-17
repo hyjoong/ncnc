@@ -16,12 +16,12 @@ export const getCategory = async () => {
   return response.data;
 };
 
-export const getList = async () => {
+export const getSaleItems = async () => {
   const response = await instance.get(`/con-items/soon`);
   if (response.status !== 200) {
     throw { status: response.status };
   }
-  return response;
+  return response.data;
 };
 
 export const getBrand = async (id: number) => {
