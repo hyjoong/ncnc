@@ -39,7 +39,6 @@ const ItemDetail = ({ item }: IProps) => {
   return (
     <DetailContainer isMenu={isMenu}>
       <DetailContent>
-        <DetailTitle>브랜드 별 유의사항</DetailTitle>
         <DetailInfo>{item.conCategory2.info}</DetailInfo>
         <DetailInfo>{item.warning}</DetailInfo>
       </DetailContent>
@@ -70,10 +69,6 @@ const DetailContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-`;
-
-const DetailTitle = styled.span`
-  margin: 10px 0;
 `;
 
 const DetailInfo = styled.span`

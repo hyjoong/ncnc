@@ -27,7 +27,7 @@ const Index = ({ saleData, categories }: IProps) => {
 
 const MainContainer = styled.div`
   max-width: 627px;
-  height: 100vh;
+  height: 94vh;
   padding-top: 5rem;
   margin: 0 auto;
   background-color: #f1f3f4;
