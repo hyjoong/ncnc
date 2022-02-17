@@ -13,3 +13,10 @@ export const parseOptionData = (option: Option) => {
 export const parseOptionDataList = (options: Option[]) => {
   return options.map(parseOptionData);
 };
+
+export const parseDate = (date: string) =>
+  new Date(date).getFullYear() +
+  "." +
+  new Date(date).getMonth().toString().padStart(2, "0") +
+  "." +
+  new Date(date).getDate().toString().padStart(2, "0");
