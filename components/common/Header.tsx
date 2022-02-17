@@ -11,9 +11,7 @@ interface IProps {
 
 const Header = ({ title, icon }: IProps) => {
   const router = useRouter();
-  const handleBack = () => {
-    router.back();
-  };
+
   return (
     <HeaderWrapper>
       {icon === "menu" ? (
@@ -41,6 +39,7 @@ const HeaderWrapper = styled.div`
   height: 4rem;
   background-color: white;
   border-bottom: 1px solid #eee;
+  z-index: 5;
 `;
 
 const MenuButton = styled.button`

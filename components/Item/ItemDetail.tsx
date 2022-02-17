@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import styled, { css } from "styled-components";
+import React, { useState, useRef } from "react";
+import styled from "styled-components";
 import OptionBox from "./optionBox";
 import { DetailType } from "types/detail";
 
@@ -8,12 +8,33 @@ interface IProps {
 }
 
 const ItemDetail = ({ item }: IProps) => {
-  console.log("hi 유의", item);
   const [isMenu, setIsMenu] = useState<boolean>(false);
-  const [isSelect, setIsSelect] = useState<boolean>(false);
 
+  const [selectOption, setSelectOption] = useState<string>("");
+  const listRef = useRef<HTMLDivElement>(null);
   const handleMenu = () => {
+    if (!listRef || !listRef.current) {
+      return;
+    }
+    const style = listRef.current.style;
+    if (isMenu) {
+      style.maxHeight = "0";
+    } else if (!isMenu) {
+      style.maxHeight = `${listRef.current.scrollHeight}px`;
+    }
+    if (isMenu) {
+      if (!selectOption) {
+        setIsMenu(!isMenu);
+        return;
+      }
+    }
+
     setIsMenu(!isMenu);
+  };
+
+  const onSetIsVisible = () => {
+    setIsMenu(false);
+    handleMenu();
   };
   return (
     <DetailContainer isMenu={isMenu}>
@@ -23,7 +44,17 @@ const ItemDetail = ({ item }: IProps) => {
         <DetailInfo>{item.warning}</DetailInfo>
       </DetailContent>
 
-      <OptionBox isMenu={isMenu} onClick={handleMenu} lists={item.options} />
+      <OptionBox
+        isMenu={isMenu}
+        handleMenu={handleMenu}
+        listRef={listRef}
+        lists={item.options}
+        discount={item.discountRate}
+        selectOption={selectOption}
+        setSelectOption={setSelectOption}
+        setIsMenu={setIsMenu}
+      />
+      {isMenu && <BodyBlackStyle onClick={onSetIsVisible} />}
     </DetailContainer>
   );
 };
@@ -31,6 +62,8 @@ const ItemDetail = ({ item }: IProps) => {
 const DetailContainer = styled.div<{ isMenu: boolean }>`
   display: flex;
   flex-direction: column;
+  width: 627px;
+  height: 100%;
 `;
 
 const DetailContent = styled.div`
@@ -49,6 +82,17 @@ const DetailInfo = styled.span`
   line-height: 1.5;
   color: #999;
   margin-bottom: 2rem;
+`;
+
+export const BodyBlackStyle = styled.div`
+  width: 627px;
+  height: 100%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
 `;
 
 export default ItemDetail;
