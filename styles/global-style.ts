@@ -15,11 +15,7 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-text-size-adjust: none;
         font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;       
         font-display: fallback; 
-        ${media.tablet}{
-            font-size: 10px;
-        }
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+ 
         background-color : #DDDDDD;
     }
     button {
