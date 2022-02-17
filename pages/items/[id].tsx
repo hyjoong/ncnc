@@ -22,7 +22,7 @@ const Items = ({ item }: IProps) => {
 const Wrapper = styled.div`
   max-width: 627px;
   height: 93vh;
-  padding-bottom: 5rem;
+  padding: 5rem 0;
   margin: 0 auto;
   background-color: white;
 `;

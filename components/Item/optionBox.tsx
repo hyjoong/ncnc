@@ -24,7 +24,6 @@ const OptionBox = ({
   setSelectOption,
 }: IProps) => {
   const optionList: Option[] = parseOptionDataList(lists);
-  console.log(optionList);
 
   const handleItem = (item: Option) => {
     const option =

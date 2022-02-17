@@ -1,14 +1,13 @@
 import React from "react";
 import FlexLayout from "components/Layout/FlexLayout";
 import ListItem from "./listItem";
-import { BrandType } from "types";
+import { BrandType, SaleItem } from "types";
 
 interface IProps {
-  items: BrandType;
+  items: BrandType | SaleItem;
 }
 
 const ListContainer = ({ items }: IProps) => {
-  console.log(items);
   return (
     <FlexLayout>
       {items.conItems.map((item, index) => (

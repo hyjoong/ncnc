@@ -14,8 +14,7 @@ const GridWrapper = styled.section`
   grid-template-columns: repeat(3, 1fr);
   row-gap: 2px;
   column-gap: 2px;
-  margin: 0 2rem;
-  padding-top: 5rem;
+  margin: 0 1rem;
 `;
 
 export default GridLayout;

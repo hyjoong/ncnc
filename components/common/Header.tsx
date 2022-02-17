@@ -32,10 +32,12 @@ const Header = ({ title, icon }: IProps) => {
 
 const HeaderWrapper = styled.div`
   position: fixed;
+  top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 627px;
+  width: 100%;
+  max-width: 627px;
   height: 4rem;
   background-color: white;
   border-bottom: 1px solid #eee;

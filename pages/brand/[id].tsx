@@ -5,7 +5,6 @@ import { getBrand } from "api/api";
 import BrandList from "components/Brand/BrandList";
 import { BrandType } from "types";
 import Header from "components/common/Header";
-import BrandHeader from "components/Brand/BrandHeader";
 
 interface IProps {
   brands: BrandType[];
@@ -15,7 +14,6 @@ const Brand = ({ brands, title }: IProps) => {
   return (
     <Wrapper>
       <Header title={title} />
-      <BrandHeader />
       <BrandList brands={brands} />
     </Wrapper>
   );
@@ -24,6 +22,7 @@ const Brand = ({ brands, title }: IProps) => {
 export default Brand;
 
 const Wrapper = styled.div`
+  padding-top: 5rem;
   max-width: 627px;
   height: 93vh;
   padding-bottom: 5rem;
