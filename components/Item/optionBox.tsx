@@ -36,12 +36,13 @@ const OptionBox = ({
   };
 
   const handleBuy = () => {
-    if (!isMenu) {
-      if (selectOption) {
-        alert("구매 완료");
-        setIsMenu(false);
-        return;
-      }
+    if (isMenu && !selectOption) {
+      return;
+    }
+    if (!isMenu && selectOption) {
+      alert("구매 완료");
+      setIsMenu(false);
+      return;
     }
     handleMenu();
   };
