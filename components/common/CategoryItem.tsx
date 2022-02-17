@@ -13,7 +13,7 @@ interface IProps {
 const CategoryItem = ({ thumbnail, id, name, type }: IProps) => {
   return (
     <Link href={`/${type}/${id}`} passHref>
-      <CategoryBox>
+      <CategoryBox className="categoryBox">
         <ItemImg src={thumbnail} />
         <ItemName>{name}</ItemName>
       </CategoryBox>

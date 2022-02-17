@@ -24,7 +24,7 @@ const Header = ({ title, icon }: IProps) => {
         </MenuButton>
       )}
 
-      <HeaderTitle>{title}</HeaderTitle>
+      <HeaderTitle className="header">{title}</HeaderTitle>
       <MenuButton></MenuButton>
     </HeaderWrapper>
   );

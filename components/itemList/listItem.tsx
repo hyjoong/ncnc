@@ -20,7 +20,7 @@ const ListItem = ({ item, type, id }: IProps) => {
 
   const router = useRouter();
   return (
-    <CategoryBox onClick={HandlePage} type={type}>
+    <CategoryBox className="itemListBox" onClick={HandlePage} type={type}>
       <ItemImg src={item.imageUrl} />
       <ItemContent>
         <ItemName>{item.name}</ItemName>

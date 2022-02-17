@@ -47,11 +47,12 @@ const OptionBox = ({
   };
 
   return (
-    <>
+    <div className="optionBox">
       <OptionList ref={listRef}>
         <OptionWrapper>
           {optionList.map((item, index) => (
             <ListContainer
+              className="listContainer"
               key={index}
               index={index}
               onClick={() => handleItem(item)}
@@ -76,10 +77,10 @@ const OptionBox = ({
           <SelectBox>{selectOption}</SelectBox>
         </SelectOptionContainer>
       )}
-      <ButtonBuy isMenu={isMenu} onClick={handleBuy}>
+      <ButtonBuy className="buttonBuy" isMenu={isMenu} onClick={handleBuy}>
         {isMenu || selectOption ? "구매하기" : "옵션 선택하기"}
       </ButtonBuy>
-    </>
+    </div>
   );
 };
 
