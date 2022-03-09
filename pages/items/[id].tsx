@@ -5,6 +5,7 @@ import { getProductDetail } from "api/api";
 import ItemContainer from "components/Item/ItemContainer";
 import Header from "components/common/Header";
 import { DetailType } from "types/detail";
+import SEOHeader from "hooks/SEOHeader";
 
 interface IProps {
   item: DetailType;
@@ -12,10 +13,18 @@ interface IProps {
 
 const Items = ({ item }: IProps) => {
   return (
-    <Wrapper>
-      <Header title="" />
-      <ItemContainer item={item}></ItemContainer>
-    </Wrapper>
+    <>
+      <SEOHeader
+        title={`${item.name}`}
+        description={`${item.information}`}
+        imageUrl={`${item.imageUrl}`}
+        siteUrl={`https://ncnc.vercel.app/items/${item.id}}`}
+      />
+      <Wrapper>
+        <Header title="" />
+        <ItemContainer item={item}></ItemContainer>
+      </Wrapper>
+    </>
   );
 };
 

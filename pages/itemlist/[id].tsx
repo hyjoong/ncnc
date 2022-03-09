@@ -5,6 +5,7 @@ import { GetServerSideProps } from "next";
 import { getProductList, getBrandTitle } from "api/api";
 import ListContainer from "components/itemList/listContainer";
 import { BrandType } from "types";
+import SEOHeader from "hooks/SEOHeader";
 
 interface IProps {
   items: BrandType;
@@ -13,10 +14,18 @@ interface IProps {
 
 const ItemList = ({ items, title }: IProps) => {
   return (
-    <Wrapper>
-      <Header title={title} />
-      <ListContainer items={items} />
-    </Wrapper>
+    <>
+      <SEOHeader
+        title={`${title}`}
+        description={`${items.conItems[0].name}.information}`}
+        imageUrl={`${items.conItems[0].imageUrl}`}
+        siteUrl={`https://ncnc.vercel.app/itemlist`}
+      />
+      <Wrapper>
+        <Header title={title} />
+        <ListContainer items={items} />
+      </Wrapper>
+    </>
   );
 };
 

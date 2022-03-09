@@ -6,6 +6,7 @@ import { CategoryData, SaleItem } from "types";
 import { GetServerSideProps } from "next";
 import ListContainer from "components/itemList/listContainer";
 import SaleTitle from "components/Main/SaleTitle";
+import SEOHeader from "hooks/SEOHeader";
 
 interface IProps {
   saleData: SaleItem;
@@ -13,15 +14,24 @@ interface IProps {
 }
 
 const Index = ({ saleData, categories }: IProps) => {
+  console.log("saledata", categories);
   return (
-    <MainContainer>
-      <MainWrapper>
-        <Header title="니콘내콘" icon="menu" />
-        <CategoryList categories={categories} />
-        <SaleTitle />
-        <ListContainer items={saleData} />
-      </MainWrapper>
-    </MainContainer>
+    <>
+      <SEOHeader
+        title="니콘내콘"
+        description="니콘내콘에서 물건을 사고 파세요"
+        imageUrl="categories[0].imageUrl"
+        siteUrl="https://ncnc.vercel.app"
+      />
+      <MainContainer>
+        <MainWrapper>
+          <Header title="니콘내콘" icon="menu" />
+          <CategoryList categories={categories} />
+          <SaleTitle />
+          <ListContainer items={saleData} />
+        </MainWrapper>
+      </MainContainer>
+    </>
   );
 };
 

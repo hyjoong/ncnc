@@ -5,17 +5,29 @@ import { getBrand } from "api/api";
 import BrandList from "components/Brand/BrandList";
 import { BrandType } from "types";
 import Header from "components/common/Header";
+import SEOHeader from "hooks/SEOHeader";
 
 interface IProps {
   brands: BrandType[];
   title: string;
 }
 const Brand = ({ brands, title }: IProps) => {
+  console.log("title", title), console.log("brad", brands);
   return (
-    <Wrapper>
-      <Header title={title} />
-      <BrandList brands={brands} />
-    </Wrapper>
+    <>
+      {
+        <SEOHeader
+          title={`${title}`}
+          description={`${brands[0].name},${brands[1].name},${brands[2].name},${brands[3].name}..`}
+          imageUrl={`${brands[0].imageUrl}`}
+          siteUrl={`https://ncnc.vercel.app/brand`}
+        />
+      }
+      <Wrapper>
+        <Header title={title} />
+        <BrandList brands={brands} />
+      </Wrapper>
+    </>
   );
 };
 
