@@ -22,7 +22,7 @@ const SEOHeader = ({
 }: SEOHeaderType) => {
   return (
     <Head>
-      <title>{title}</title>
+      <title>니콘내콘 | {title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content="" />
       <meta property="og:type" content={type ?? "website"} />

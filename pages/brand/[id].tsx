@@ -10,9 +10,9 @@ import SEOHeader from "hooks/SEOHeader";
 interface IProps {
   brands: BrandType[];
   title: string;
+  id: number;
 }
-const Brand = ({ brands, title }: IProps) => {
-  console.log("title", title), console.log("brad", brands);
+const Brand = ({ brands, title, id }: IProps) => {
   return (
     <>
       {
@@ -20,7 +20,7 @@ const Brand = ({ brands, title }: IProps) => {
           title={`${title}`}
           description={`${brands[0].name},${brands[1].name},${brands[2].name},${brands[3].name}..`}
           imageUrl={`${brands[0].imageUrl}`}
-          siteUrl={`https://ncnc.vercel.app/brand`}
+          siteUrl={`https://ncnc.vercel.app/brand/${id}`}
         />
       }
       <Wrapper>
@@ -50,6 +50,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     props: {
       brands: response.conCategory1.conCategory2s,
       title: response.conCategory1.name,
+      id: response.conCategory1.id,
     },
   };
 };

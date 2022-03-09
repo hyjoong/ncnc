@@ -17,7 +17,7 @@ const ItemList = ({ items, title }: IProps) => {
     <>
       <SEOHeader
         title={`${title}`}
-        description={`${items.conItems[0].name}.information}`}
+        description={`${title}상품들을 만나보세요!`}
         imageUrl={`${items.conItems[0].imageUrl}`}
         siteUrl={`https://ncnc.vercel.app/itemlist`}
       />

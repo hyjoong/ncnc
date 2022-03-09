@@ -6,6 +6,7 @@ export interface BrandListType {
   conCategory1: {
     conCategory2s: CategoryData[];
     name: string;
+    id: number;
   };
 }
 

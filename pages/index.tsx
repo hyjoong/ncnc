@@ -19,8 +19,8 @@ const Index = ({ saleData, categories }: IProps) => {
     <>
       <SEOHeader
         title="니콘내콘"
-        description="니콘내콘에서 물건을 사고 파세요"
-        imageUrl="categories[0].imageUrl"
+        description={`니콘내콘에서 물건을 사고 파세요`}
+        imageUrl={`${categories[0].imageUrl}`}
         siteUrl="https://ncnc.vercel.app"
       />
       <MainContainer>
