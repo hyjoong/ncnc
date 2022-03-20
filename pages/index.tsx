@@ -3,7 +3,6 @@ import CategoryList from "components/Main/CategoryList";
 import Header from "components/common/Header";
 import { getCategory, getSaleItems } from "api/api";
 import { CategoryData, SaleItem } from "types";
-import { GetServerSideProps } from "next";
 import ListContainer from "components/itemList/listContainer";
 import SaleTitle from "components/Main/SaleTitle";
 import SEOHeader from "hooks/SEOHeader";
@@ -45,7 +44,7 @@ const MainContainer = styled.div`
 
 const MainWrapper = styled.div``;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps = async () => {
   const data = await getCategory();
   const saleData = await getSaleItems();
 
