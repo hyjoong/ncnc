@@ -48,9 +48,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      brands: response.conCategory1.conCategory2s,
-      title: response.conCategory1.name,
-      id: response.conCategory1.id,
+      brands: response.conCategory2s,
+      title: response.name,
+      id: response.id,
     },
   };
 };

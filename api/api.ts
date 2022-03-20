@@ -1,3 +1,4 @@
+import { CategoryData } from "types";
 import { DetailType } from "./../types/detail";
 import {
   CategoryListType,
@@ -9,11 +10,14 @@ import {
 import { instance } from "./axios";
 
 export const getCategory = async () => {
-  const response = await instance.get<CategoryListType>(`/con-category1s`);
-  if (response.status !== 200) {
-    throw { status: response.status };
+  try {
+    const { data } = await instance.get(`/con-category1s`);
+    return data.conCategory1s as CategoryData[];
+  } catch (e) {
+    if (e instanceof Error) {
+      throw new Error(`category Error: ${e.message}`);
+    }
   }
-  return response.data;
 };
 
 export const getSaleItems = async () => {
@@ -31,7 +35,7 @@ export const getBrand = async (id: number) => {
   if (response.status !== 200) {
     throw { status: response.status };
   }
-  return response.data;
+  return response.data.conCategory1;
 };
 
 export const getProductList = async (id: number) => {

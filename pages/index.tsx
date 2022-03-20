@@ -52,7 +52,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       saleData: saleData,
-      categories: data.conCategory1s,
+      categories: data,
     },
   };
 };
