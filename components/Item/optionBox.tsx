@@ -79,7 +79,7 @@ const OptionBox = ({
         </SelectOptionContainer>
       )}
       <ButtonBuy className="buttonBuy" isMenu={isMenu} onClick={handleBuy}>
-        {isMenu || selectOption ? "구매하기" : "옵션 선택하기"}
+        {isMenu ? "구매하기" : selectOption ? "구매하기" : "옵션 선택하기"}
       </ButtonBuy>
     </div>
   );
