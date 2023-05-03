@@ -13,7 +13,6 @@ interface IProps {
 }
 
 const Index = ({ saleData, categories }: IProps) => {
-  console.log("saledata", categories);
   return (
     <>
       <SEOHeader
@@ -34,6 +33,21 @@ const Index = ({ saleData, categories }: IProps) => {
   );
 };
 
+export const getStaticProps = async () => {
+  const [categories, saleData] = await Promise.all([
+    getCategory(),
+    getSaleItems(),
+  ]);
+
+  return {
+    props: {
+      categories,
+      saleData,
+    },
+    revalidate: 604800,
+  };
+};
+
 const MainContainer = styled.div`
   max-width: 627px;
   height: 94vh;
@@ -43,17 +57,5 @@ const MainContainer = styled.div`
 `;
 
 const MainWrapper = styled.div``;
-
-export const getStaticProps = async () => {
-  const data = await getCategory();
-  const saleData = await getSaleItems();
-
-  return {
-    props: {
-      saleData: saleData,
-      categories: data,
-    },
-  };
-};
 
 export default Index;
