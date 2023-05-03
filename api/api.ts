@@ -12,7 +12,7 @@ import { instance } from "./axios";
 export const getCategory = async () => {
   try {
     const { data } = await instance.get(`/con-category1s`);
-    return data.conCategory1s as CategoryData[];
+    return data.conCategory1s;
   } catch (e) {
     if (e instanceof Error) {
       throw new Error(`category Error: ${e.message}`);
@@ -21,11 +21,14 @@ export const getCategory = async () => {
 };
 
 export const getSaleItems = async () => {
-  const response = await instance.get(`/con-items/soon`);
-  if (response.status !== 200) {
-    throw { status: response.status };
+  try {
+    const response = await instance.get(`/con-items/soon`);
+    return response.data;
+  } catch (e) {
+    if (e instanceof Error) {
+      throw new Error(`getSaleItems Error: ${e.message}`);
+    }
   }
-  return response.data;
 };
 
 export const getBrand = async (id: number) => {
