@@ -11,6 +11,10 @@ export const GlobalStyle = createGlobalStyle`
     ::-webkit-scrollbar {
         display: none;
     }
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
     html{
         -webkit-text-size-adjust: none;
         font-family: -apple-system,BlinkMacSystemFont,helvetica,Apple SD Gothic Neo,sans-serif;       
