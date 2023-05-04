@@ -43,7 +43,7 @@ const Wrapper = styled.div`
 `;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params.id;
+  const id = context.params?.id;
   const response = await getBrand(Number(id));
 
   return {

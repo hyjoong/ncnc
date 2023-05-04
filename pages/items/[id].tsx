@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 export default Items;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params.id;
+  const id = context.params?.id;
   const response = await getProductDetail(Number(id));
 
   return {

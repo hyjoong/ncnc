@@ -28,7 +28,7 @@ export type DetailType = {
   minSellingPrice: number;
   ncSellingPrice: number;
   information: string;
-  tip: null | string;
+  tip: string;
   warning: string;
   discountRate: number;
   info: null | string;
