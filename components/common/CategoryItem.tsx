@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/dist/client/router";
+import Image from "next/image";
 import Link from "next/link";
 
 interface IProps {
@@ -12,9 +12,9 @@ interface IProps {
 
 const CategoryItem = ({ thumbnail, id, name, type }: IProps) => {
   return (
-    <Link href={`/${type}/${id}`} passHref>
+    <Link href={`/${type}/${id}`}>
       <CategoryBox className="categoryBox">
-        <ItemImg src={thumbnail} />
+        <Image src={thumbnail} width={40} height={40} alt="category-image" />
         <ItemName>{name}</ItemName>
       </CategoryBox>
     </Link>
