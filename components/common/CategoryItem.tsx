@@ -14,7 +14,14 @@ const CategoryItem = ({ thumbnail, id, name, type }: IProps) => {
   return (
     <Link href={`/${type}/${id}`}>
       <CategoryBox className="categoryBox">
-        <Image src={thumbnail} width={40} height={40} alt="category-image" />
+        <Image
+          src={thumbnail}
+          width={40}
+          height={40}
+          alt='brand'
+          placeholder="blur"
+          blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+        />
         <ItemName>{name}</ItemName>
       </CategoryBox>
     </Link>
