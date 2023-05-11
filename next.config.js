@@ -6,5 +6,7 @@ module.exports = {
   },
   images: {
     domains: ["d1dsr05o5i286u.cloudfront.net", "d1tftw9jjs9bx5.cloudfront.net"],
+    minimumCacheTTL: 86400,
+    formats: ["image/avif", "image/webp"],
   },
 };
