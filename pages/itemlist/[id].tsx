@@ -4,7 +4,7 @@ import Header from "components/common/Header";
 import { GetStaticProps } from "next";
 import { getProductList, getBrandTitle, getCategory, getBrand } from "api/api";
 import ListContainer from "components/itemList/listContainer";
-import { BrandType, BrandListType, CategoryData } from "types";
+import { BrandType } from "types";
 import SEOHeader from "hooks/SEOHeader";
 
 interface IProps {
@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       title: res.conCategory2.name,
       items: response,
     },
-    revalidate: 60,
+    revalidate: 86400,
   };
 };
 
