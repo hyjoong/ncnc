@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { BrandItem } from "types";
 import { useRouter } from "next/dist/client/router";
+import Image from "next/image";
 
 interface IProps {
   item: BrandItem;
@@ -21,7 +22,14 @@ const ListItem = ({ item, type, id }: IProps) => {
   const router = useRouter();
   return (
     <CategoryBox className="itemListBox" onClick={HandlePage} type={type}>
-      <ItemImg src={item.imageUrl} />
+      <Image
+        src={item.imageUrl}
+        width={70}
+        height={70}
+        alt="sale-item"
+        placeholder="blur"
+        blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
+      />
       <ItemContent>
         <ItemName>{item.name}</ItemName>
         <ItemPrice>
