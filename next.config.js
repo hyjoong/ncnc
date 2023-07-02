@@ -4,6 +4,9 @@ module.exports = {
   experimental: {
     appDir: true,
   },
+  compiler: {
+    styledComponents: true,
+  },
   images: {
     domains: [
       "d1dsr05o5i286u.cloudfront.net",
