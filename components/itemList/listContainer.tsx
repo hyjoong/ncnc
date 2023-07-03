@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import FlexLayout from "components/Layout/FlexLayout";
 import ListItem from "./listItem";
@@ -10,7 +11,7 @@ interface IProps {
 const ListContainer = ({ items }: IProps) => {
   return (
     <FlexLayout>
-      {items.conItems.map((item, index) => (
+      {items?.conItems.map((item, index) => (
         <ListItem key={index} item={item} id={item.id} type="items" />
       ))}
     </FlexLayout>

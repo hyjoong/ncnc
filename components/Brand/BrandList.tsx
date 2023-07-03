@@ -1,10 +1,11 @@
+"use client";
 import React from "react";
 import GridLayout from "components/Layout/GridLayout";
 import CategoryItem from "components/common/CategoryItem";
-import { BrandType } from "types";
+import { BrandListType } from "types";
 
 interface IProps {
-  brands: BrandType[];
+  brands: BrandListType["conCategory1"]["conCategory2s"];
 }
 
 const BrandList = ({ brands }: IProps) => {
