@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { BrandItem } from "types";
-import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface IProps {
   item: BrandItem;
@@ -11,6 +11,7 @@ interface IProps {
 }
 
 const ListItem = ({ item, type, id }: IProps) => {
+  const router = useRouter();
   const HandlePage = () => {
     if (type !== "detail") {
       router.push(`/${type}/${id}`);
@@ -19,7 +20,6 @@ const ListItem = ({ item, type, id }: IProps) => {
     }
   };
 
-  const router = useRouter();
   return (
     <CategoryBox className="itemListBox" onClick={HandlePage} type={type}>
       <Image
@@ -56,10 +56,6 @@ const CategoryBox = styled.div<{ type: string }>`
     css`
       cursor: pointer;
     `}
-`;
-const ItemImg = styled.img`
-  width: 70px;
-  height: 70px;
 `;
 
 const ItemContent = styled.div`
