@@ -1,8 +1,5 @@
-"use client";
 import "./globals.css";
-import styled from "styled-components";
-import StyledJsxRegistry from "./registry";
-
+import styles from "./layout.module.css";
 export default function RootLayout({
   children,
 }: {
@@ -11,23 +8,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <StyledJsxRegistry>
-          <LayoutStyled>
-            <Content>{children}</Content>
-          </LayoutStyled>
-        </StyledJsxRegistry>
+        <div className={styles.main}>
+          <div className={styles.content}>{children}</div>
+        </div>
       </body>
     </html>
   );
 }
-
-const LayoutStyled = styled.div`
-  background-color: #dddddd;
-`;
-
-const Content = styled.div`
-  max-width: 627px;
-  padding-top: 80px;
-  margin: 0 auto;
-  background-color: #f1f3f4;
-`;

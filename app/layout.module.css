@@ -1,0 +1,12 @@
+.main {
+  min-height: 100vh;
+  background-color: #dddddd;
+}
+
+.content {
+  max-width: 627px;
+  padding: 80px 0 20px;
+  margin: 0 auto;
+  background-color: #f1f3f4;
+  min-height: 100vh;
+}
