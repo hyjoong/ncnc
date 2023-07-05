@@ -1,18 +1,20 @@
 import CategoryList from "components/Main/CategoryList";
 import Header from "components/common/Header";
-import { getCategory, getSaleItems } from "api/api";
 import ListContainer from "components/itemList/listContainer";
 import SaleTitle from "components/Main/SaleTitle";
 import SEOHeader from "hooks/SEOHeader";
 
 const getCategoryData = async () => {
-  const categoryData = await getCategory();
-  return categoryData;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URI}/con-category1s`, {});
+  const data = await res.json();
+  const { conCategory1s } = data;
+  return conCategory1s;
 };
 
 const getSaleData = async () => {
-  const saleData = await getSaleItems();
-  return saleData;
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URI}/con-items/soon`, {});
+  const data = await res.json();
+  return data;
 };
 
 const Home = async () => {

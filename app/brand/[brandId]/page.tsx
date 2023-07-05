@@ -1,14 +1,16 @@
-import { getBrand } from "api/api";
+import React from "react";
 import BrandList from "components/Brand/BrandList";
 import Header from "components/common/Header";
 import SEOHeader from "hooks/SEOHeader";
-import React from "react";
 
 type Params = { params: { brandId: string } };
 
 const getBrandData = async (brandId: number) => {
-  const response = await getBrand(brandId);
-  return response;
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_URI}/con-category1s/${brandId}/nested`
+  );
+  const data = await res.json();
+  return data.conCategory1;
 };
 
 export default async function Page({ params: { brandId } }: Params) {
