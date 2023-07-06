@@ -30,7 +30,7 @@
     "react-ripples": "^2.2.1",
     "react-virtualized-auto-sizer": "^1.0.4",
     "react-window": "^1.8.6",
-    "styled-components": "^5.2.1",
+    "styled-components": "^6.0.0-rc.2-4007",
     "styled-jsx": "^5.1.2",
     "styled-reset": "^4.3.4"
   },
