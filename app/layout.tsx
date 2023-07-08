@@ -1,5 +1,6 @@
 import "./globals.css";
 import styles from "./layout.module.css";
+import { Registry } from "./ui/Registry";
 export default function RootLayout({
   children,
 }: {
@@ -8,9 +9,11 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <div className={styles.main}>
-          <div className={styles.content}>{children}</div>
-        </div>
+        <Registry>
+          <div className={styles.main}>
+            <div className={styles.content}>{children}</div>
+          </div>
+        </Registry>
       </body>
     </html>
   );
