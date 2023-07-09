@@ -5,14 +5,16 @@ import SaleTitle from "components/Main/SaleTitle";
 import SEOHeader from "hooks/SEOHeader";
 
 const getCategoryData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URI}/con-category1s`, {});
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URI}/con-category1s`);
   const data = await res.json();
   const { conCategory1s } = data;
   return conCategory1s;
 };
 
 const getSaleData = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URI}/con-items/soon`, {});
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URI}/con-items/soon`, {
+    next: { revalidate: 86400 },
+  });
   const data = await res.json();
   return data;
 };
