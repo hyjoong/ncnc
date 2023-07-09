@@ -63,6 +63,8 @@ const DetailContainer = styled.div<{ isMenu: boolean }>`
   flex-direction: column;
   width: 627px;
   height: 100%;
+  background-color: #ffffff;
+  min-height: calc(100vh - 220px);
 `;
 
 const DetailContent = styled.div`

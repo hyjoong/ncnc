@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import ListItem from "components/itemList/listItem";
 import FlexLayout from "components/Layout/FlexLayout";

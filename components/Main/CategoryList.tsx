@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import GridLayout from "components/Layout/GridLayout";
 import CategoryItem from "components/common/CategoryItem";

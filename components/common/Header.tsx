@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
 import styled from "styled-components";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/navigation";
 import MenuIcon from "components/icons/memuIcon";
 import BackIcon from "components/icons/backIcon";
 
@@ -24,7 +25,7 @@ const Header = ({ title, icon }: IProps) => {
         </MenuButton>
       )}
 
-      <HeaderTitle className="header">{title}</HeaderTitle>
+      <HeaderTitle>{title}</HeaderTitle>
       <MenuButton></MenuButton>
     </HeaderWrapper>
   );

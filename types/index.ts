@@ -10,6 +10,10 @@ export interface BrandListType {
   };
 }
 
+export interface BrandItemListType {
+  conCategory1: BrandListType["conCategory1"];
+}
+
 export interface CategoryData {
   id: number;
   name: string;
