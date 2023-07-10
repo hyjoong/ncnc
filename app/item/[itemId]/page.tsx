@@ -7,7 +7,8 @@ type Params = { params: { itemId: string } };
 
 const getItemData = async (itemId: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URI}/con-items//${itemId}`
+    `${process.env.NEXT_PUBLIC_URI}/con-items//${itemId}`,
+    { cache: "no-store" }
   );
   const data = await res.json();
   return data.conItem;
