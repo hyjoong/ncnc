@@ -49,30 +49,32 @@ const OptionBox = ({
 
   return (
     <div className="optionBox">
-      <OptionList ref={listRef}>
-        <OptionWrapper>
-          {optionList.map((item, index) => (
-            <ListContainer
-              className="listContainer"
-              key={index}
-              index={index}
-              onClick={() => handleItem(item)}
-            >
-              <ListContent>
-                <ListComponent>
-                  <span className="title">유효기간:</span>
-                  <span>{item.expireAt} 까지</span>
-                </ListComponent>
-                <ListComponent>
-                  <span className="title">할인가:</span>
-                  <span> {item.sellingPrice.toLocaleString()}원</span>
-                </ListComponent>
-              </ListContent>
-              <ListRate>{discount}%</ListRate>
-            </ListContainer>
-          ))}
-        </OptionWrapper>
-      </OptionList>
+      {isMenu && (
+        <OptionList ref={listRef}>
+          <OptionWrapper>
+            {optionList.map((item, index) => (
+              <ListContainer
+                className="listContainer"
+                key={index}
+                index={index}
+                onClick={() => handleItem(item)}
+              >
+                <ListContent>
+                  <ListComponent>
+                    <span className="title">유효기간:</span>
+                    <span>{item.expireAt} 까지</span>
+                  </ListComponent>
+                  <ListComponent>
+                    <span className="title">할인가:</span>
+                    <span> {item.sellingPrice.toLocaleString()}원</span>
+                  </ListComponent>
+                </ListContent>
+                <ListRate>{discount}%</ListRate>
+              </ListContainer>
+            ))}
+          </OptionWrapper>
+        </OptionList>
+      )}
       {selectOption && (
         <SelectOptionContainer onClick={handleMenu}>
           <SelectBox>{selectOption}</SelectBox>
@@ -85,21 +87,12 @@ const OptionBox = ({
   );
 };
 
-const OptionList = styled.div`
-  max-height: 0;
-  position: fixed;
-  bottom: 50px;
-  width: 627px;
-  background-color: #ffffff;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-  z-index: 5;
-`;
+const OptionList = styled.div``;
 
 const OptionWrapper = styled.div`
   width: 100%;
-  min-height: 256px;
-  max-height: 256px;
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  height: 150px;
   overflow-y: auto;
 `;
 
@@ -107,12 +100,7 @@ const ListContainer = styled.div<{ index: number }>`
   display: flex;
   justify-content: space-between;
   color: #000;
-  padding: 10px 20px;
-  ${({ index }) =>
-    index === 0 &&
-    css`
-      border-top: 2px solid rgba(0, 0, 0, 0.1);
-    `}
+  padding: 3px 20px;
 
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -140,8 +128,6 @@ const ListRate = styled.span`
 `;
 
 const SelectOptionContainer = styled.div`
-  position: fixed;
-  width: 627px;
   background-color: #ffffff;
   border-top: 1px solid rgba(0, 0, 0, 0.2);
   bottom: 50px;
@@ -150,22 +136,22 @@ const SelectOptionContainer = styled.div`
 
 const SelectBox = styled.div`
   padding: 12px 20px;
-  margin: 15px 25px;
+  margin: 10px 25px;
   font-size: 15px;
   border-radius: 5px;
   background-color: #ebeced;
 `;
 
 const ButtonBuy = styled.button<{ isMenu: boolean }>`
-  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 627px;
-  bottom: 0;
+  width: 100%;
   height: 50px;
-  z-index: 2;
+  transition: all 0.15s ease-in-out;
   color: #fff;
+  font-size: 17px;
+  font-weight: 600;
   ${({ isMenu }) =>
     isMenu
       ? css`
