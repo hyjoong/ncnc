@@ -26,13 +26,15 @@ const Loading = () => {
 };
 
 const StyledLoading = styled.div`
-  height: 100%;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 `;
 
 const SpinnerSVG = styled.svg`
+  position: absolute;
+  top: 50%;
+  left: 50%;
   width: 32px;
   height: 32px;
   fill: gray;

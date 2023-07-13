@@ -13,29 +13,9 @@ const ItemDetail = ({ item }: IProps) => {
   const [selectOption, setSelectOption] = useState<string>("");
   const listRef = useRef<HTMLDivElement>(null);
   const handleMenu = () => {
-    if (!listRef || !listRef.current) {
-      return;
-    }
-    const style = listRef.current.style;
-    if (isMenu) {
-      style.maxHeight = "0";
-    } else if (!isMenu) {
-      style.maxHeight = `${listRef.current.scrollHeight}px`;
-    }
-    if (isMenu) {
-      if (!selectOption) {
-        setIsMenu(!isMenu);
-        return;
-      }
-    }
-
     setIsMenu(!isMenu);
   };
 
-  const onSetIsVisible = () => {
-    setIsMenu(false);
-    handleMenu();
-  };
   return (
     <DetailContainer isMenu={isMenu}>
       <DetailContent>
@@ -53,7 +33,6 @@ const ItemDetail = ({ item }: IProps) => {
         setSelectOption={setSelectOption}
         setIsMenu={setIsMenu}
       />
-      {isMenu && <BodyBlackStyle onClick={onSetIsVisible} />}
     </DetailContainer>
   );
 };
@@ -61,16 +40,18 @@ const ItemDetail = ({ item }: IProps) => {
 const DetailContainer = styled.div<{ isMenu: boolean }>`
   display: flex;
   flex-direction: column;
-  width: 627px;
+  justify-content: space-between;
   height: 100%;
   background-color: #ffffff;
-  min-height: calc(100vh - 220px);
+  min-height: calc(100vh - 191px);
 `;
 
 const DetailContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+  max-height: 300px;
+  overflow-y: auto;
 `;
 
 const DetailInfo = styled.span`
@@ -78,18 +59,6 @@ const DetailInfo = styled.span`
   white-space: pre-wrap;
   line-height: 1.5;
   color: #999;
-  margin-bottom: 2rem;
-`;
-
-export const BodyBlackStyle = styled.div`
-  width: 627px;
-  height: 100%;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.4);
 `;
 
 export default ItemDetail;
