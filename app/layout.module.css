@@ -5,6 +5,7 @@
 
 .content {
   max-width: 627px;
+  min-height: 100vh;
   padding-top: 80px;
   margin: 0 auto;
   background-color: #f1f3f4;
