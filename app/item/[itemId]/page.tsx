@@ -1,8 +1,8 @@
 import React from "react";
-import type { Metadata } from "next";
-import SEOHeader from "hooks/SEOHeader";
+import { Metadata } from "next";
 import Header from "components/common/Header";
 import ItemContainer from "components/Item/ItemContainer";
+
 type Params = { params: { itemId: string } };
 
 const getItemData = async (itemId: number) => {
@@ -19,13 +19,12 @@ export const generateMetadata = async ({
 }: Params): Promise<Metadata> => {
   try {
     const itemInfo = await getItemData(Number(itemId));
-
     return {
       title: `ncnc | ${itemInfo.name}`,
       description: itemInfo.information,
       openGraph: {
-        url: `https://ncnc.vercel.app`,
-        title: `${itemInfo.title}`,
+        url: `https://ncnc.vercel.app/item/${itemId}`,
+        title: `ncnc | ${itemInfo.title}`,
         siteName: "ncnc",
         description: itemInfo.information,
         images: [
