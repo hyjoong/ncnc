@@ -17,33 +17,26 @@ const getItemData = async (itemId: number) => {
 export const generateMetadata = async ({
   params: itemId,
 }: Params): Promise<Metadata> => {
-  try {
-    const itemInfo = await getItemData(Number(itemId));
-    return {
-      title: `ncnc | ${itemInfo.name}`,
+  const itemInfo = await getItemData(Number(itemId));
+  return {
+    title: `ncnc | ${itemInfo.name}`,
+    description: itemInfo.information,
+    openGraph: {
+      url: `https://ncnc.vercel.app/item/${itemId}`,
+      title: `ncnc | ${itemInfo.title}`,
+      siteName: "ncnc",
       description: itemInfo.information,
-      openGraph: {
-        url: `https://ncnc.vercel.app/item/${itemId}`,
-        title: `ncnc | ${itemInfo.title}`,
-        siteName: "ncnc",
-        description: itemInfo.information,
-        images: [
-          {
-            url: `${itemInfo.imageUrl}`,
-            width: 80,
-            height: 80,
-            alt: `product picture: ${itemInfo.title}`,
-            type: "image/png",
-          },
-        ],
-      },
-    };
-  } catch (e) {
-    return {
-      title: "ncnc | Not found",
-      description: "The resource you were looking for does not exist",
-    };
-  }
+      images: [
+        {
+          url: `${itemInfo.imageUrl}`,
+          width: 80,
+          height: 80,
+          alt: `product picture: ${itemInfo.title}`,
+          type: "image/png",
+        },
+      ],
+    },
+  };
 };
 
 export default async function ({ params: { itemId } }: Params) {
