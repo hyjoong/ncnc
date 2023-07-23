@@ -18,7 +18,7 @@ const CategoryItem = ({ thumbnail, id, name, type }: IProps) => {
           src={thumbnail}
           width={40}
           height={40}
-          alt='brand'
+          alt="brand"
           placeholder="blur"
           blurDataURL="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAFklEQVR42mN8//HLfwYiAOOoQvoqBABbWyZJf74GZgAAAABJRU5ErkJggg=="
         />
@@ -36,13 +36,19 @@ const CategoryBox = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-`;
-const ItemImg = styled.img`
-  width: 40px;
+
+  img {
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    img {
+      scale: calc(1.1);
+    }
+  }
 `;
 
 const ItemName = styled.div`
-  margin-top: 12px;
+  margin-top: 5px;
   font-size: 0.7rem;
   font-weight: 600;
 `;
