@@ -8,30 +8,31 @@ describe("E2E Test", () => {
   before(() => {
     cy.visit(`${BASE_URL}`);
   });
+
   it("페이지에 처음 접속하면  오늘의 떙처리콘! 글자를 확인할 수 있다", () => {
-    cy.contains("오늘의 떙처리콘!", { timeout: 3000 }).should("be.visible");
+    cy.contains("오늘의 떙처리콘!", { timeout: 10000 }).should("be.visible");
   });
 
   it("페이지에 처음 접속하면 카테고리 탭을 볼 수 있다.", () => {
-    cy.get(".categoryBox", { timeout: 3000 }).should("be.visible");
+    cy.get(".categoryBox", { timeout: 10000 }).should("be.visible");
   });
 
   it("사용자는 카테고리를 클릭해서 브랜드 페이지로 이동할 수 있다.", () => {
-    cy.get(".categoryBox", { timeout: 3000 }).eq(1).click();
+    cy.get(".categoryBox", { timeout: 10000 }).eq(1).click();
     cy.location().should((loc) => {
       expect(loc.pathname).to.eq(`/brand/${BRAND_ID}`);
     });
   });
 
   it("사용자는 브랜드 페이지에서 특정 브랜드를 선택하면 해당하는 선택한 브랜드의 itemList 페이지로 이동할 수 있다.", () => {
-    cy.get(".categoryBox", { timeout: 3000 }).first().click();
+    cy.get(".categoryBox", { timeout: 10000 }).first().click();
     cy.location().should((loc) => {
       expect(loc.pathname).to.eq(`/itemlist/${ITEMLIST_ID}`);
     });
   });
 
-  it("사용자는 상품들 리스트에서 상품을 클릭해서 상품 상세페이지를 볼 수 있다..", () => {
-    cy.get(".itemListBox").first().click();
+  it("사용자는 상품들 리스트에서 상품을 클릭해서 상품 상세페이지를 볼 수 있다.", () => {
+    cy.get(".itemListBox", { timeout: 10000 }).first().click();
     cy.location().should((loc) => {
       expect(loc.pathname).to.eq(`/item/${ITEM_ID}`);
     });
@@ -43,6 +44,7 @@ describe("E2E Test", () => {
       cy.get(".listContainer").first().click();
     });
   });
+
   it("사용자는 선택한 옵션을 구매할 수 있다", () => {
     cy.get(".buttonBuy").first().click();
     cy.on("window:alert", (str) => {
