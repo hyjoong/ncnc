@@ -104,3 +104,11 @@ export interface faContent {
 export interface SaleItem {
   conItems: BrandItem[];
 }
+export interface Brand {
+  conCategory2: {
+    id: number;
+    name: string;
+    imageUrl: string;
+    conCategory1Id: number;
+  };
+}

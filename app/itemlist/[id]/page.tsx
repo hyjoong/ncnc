@@ -1,8 +1,8 @@
 import React from "react";
+import { Metadata } from "next";
 import ListContainer from "components/itemList/listContainer";
-import SEOHeader from "hooks/SEOHeader";
 import Header from "components/common/Header";
-import { BrandItemListType } from "types";
+import { Brand, BrandItemListType } from "types";
 
 type Params = { params: { id: string } };
 
@@ -15,7 +15,7 @@ const getbrandItemList = async (id: string) => {
   return data;
 };
 
-const getBrandInfo = async (id: string) => {
+const getBrandInfo = async (id: string): Promise<Brand> => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URI}/con-category2s/${id}`,
     { next: { revalidate: 86400 } }
@@ -24,18 +24,44 @@ const getBrandInfo = async (id: string) => {
   return data;
 };
 
+export const generateMetadata = async ({
+  params: { id },
+}: Params): Promise<Metadata> => {
+  try {
+    const brandInfo = await getBrandInfo(id);
+
+    return {
+      title: `ncnc | ${brandInfo.conCategory2.name}`,
+      description: `${brandInfo.conCategory2.name}상품들을 둘러보세요`,
+      openGraph: {
+        url: `https://ncnc.vercel.app/itemlist/${id}`,
+        title: brandInfo.conCategory2.name,
+        siteName: "ncnc",
+        description: brandInfo.conCategory2.name,
+        images: [
+          {
+            url: brandInfo.conCategory2.imageUrl,
+            width: 80,
+            height: 80,
+            alt: `${brandInfo.conCategory2.name}`,
+            type: "image/png",
+          },
+        ],
+      },
+    };
+  } catch (e) {
+    return {
+      title: "ncnc | Not found",
+      description: "The resource you were looking for does not exist",
+    };
+  }
+};
+
 export default async function ({ params: { id } }: Params) {
   const brandInfo = await getBrandInfo(id);
   const brandItemList = await getbrandItemList(id);
-
   return (
     <>
-      <SEOHeader
-        title={`${brandInfo.conCategory2.name}`}
-        description={`${brandInfo.conCategory2.name}상품들을 만나보세요!`}
-        imageUrl={`${brandInfo.conCategory2.imageUrl}`}
-        siteUrl={`https://ncnc.vercel.app/itemlist`}
-      />
       <Header title={brandInfo.conCategory2.name} />
       <ListContainer items={brandItemList} />
     </>
