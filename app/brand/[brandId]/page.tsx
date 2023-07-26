@@ -21,18 +21,18 @@ export const generateMetadata = async ({
 
     return {
       title: `ncnc | ${data.name}`,
-      description: ` ${data.conCategory2s[0].name}, ${data[1]?.name}, ${data[2]?.name}, ${data[3]?.name}..`,
+      description: ` ${data.conCategory2s[0].name}, ${data.conCategory2s[1]?.name}, ${data.conCategory2s[2]?.name}, ${data.conCategory2s[3]?.name}..`,
       openGraph: {
         url: `https://ncnc.vercel.app/item/${brandId}`,
         title: `ncnc | ${data.name}`,
         siteName: "ncnc",
-        description: ` ${data.conCategory2s[0].name}, ${data[1]?.name}, ${data[2]?.name}, ${data[3]?.name}..`,
+        description: ` ${data.conCategory2s[0]?.name}`,
         images: [
           {
             url: `${data.conCategory2s[0].imageUrl}`,
             width: 80,
             height: 80,
-            alt: "brand:",
+            alt: data.conCategory2s[0].name,
             type: "image/png",
           },
         ],
@@ -48,6 +48,7 @@ export const generateMetadata = async ({
 
 export default async function Page({ params: { brandId } }: Params) {
   const data = await getBrandData(Number(brandId));
+  console.log("cc", data);
   return (
     <>
       <Header title={data.name} />
