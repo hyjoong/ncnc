@@ -48,7 +48,6 @@ export const generateMetadata = async ({
 
 export default async function Page({ params: { brandId } }: Params) {
   const data = await getBrandData(Number(brandId));
-  console.log("cc", data);
   return (
     <>
       <Header title={data.name} />
