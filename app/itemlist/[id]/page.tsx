@@ -9,7 +9,7 @@ type Params = { params: { id: string } };
 const getbrandItemList = async (id: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URI}/con-items/?conCategory2Id=${id}`,
-    { next: { revalidate: 86400 } }
+    { next: { revalidate: 86400, tags: ["itemList-items"] } }
   );
   const data = await res.json();
   return data;
@@ -18,7 +18,7 @@ const getbrandItemList = async (id: string) => {
 const getBrandInfo = async (id: string): Promise<Brand> => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URI}/con-category2s/${id}`,
-    { next: { revalidate: 86400 } }
+    { next: { revalidate: 86400, tags: ["itemList-brand"] } }
   );
   const data = await res.json();
   return data;

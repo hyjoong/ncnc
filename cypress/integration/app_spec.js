@@ -39,7 +39,7 @@ describe("E2E Test", () => {
   });
 
   it("사용자는 상세페이지에서 구매하기 버튼을 눌러 옵션리스트들을 조회한 후 옵션을 선택할 수 있다.", () => {
-    cy.get(".optionBox").within(() => {
+    cy.get(".optionBox", { timeout: 10000 }).within(() => {
       cy.get(".buttonBuy").click();
       cy.get(".listContainer").first().click();
     });
