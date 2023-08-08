@@ -30,4 +30,4 @@ jobs:
           base-branch: main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NEXT_PUBLIC_URI: ${{ env.NEXT_PUBLIC_URI }}
+          NEXT_PUBLIC_URI: ${{ secrets.NEXT_PUBLIC_URI }}
