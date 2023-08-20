@@ -6,7 +6,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "dev": "next",
+    "dev": "yarn env:dev && next",
     "build": "next build",
     "start": "next start",
     "cypress": "cypress open",
@@ -14,6 +14,7 @@
     "type-check": "tsc",
     "eslint": "eslint .",
     "test": "jest",
+    "env:dev": "vercel env pull .env.local --environment preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
