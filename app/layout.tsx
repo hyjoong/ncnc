@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import styles from "./layout.module.css";
 import { Registry } from "./ui/Registry";
@@ -54,6 +55,7 @@ export default function RootLayout({
             <div className={styles.content}>
               {children}
               {modal}
+              <Analytics />
             </div>
           </div>
         </Registry>
