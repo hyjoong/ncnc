@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "니콘내콘",
-    description: "니콘내콘에서 물건을 사고 파세요",
+    description:
+      "기프티콘 판매 및 구매 1위 플랫폼, 스타벅스 기프티콘부터 모바일상품권까지 일상에서의 할인을 받아보세요.",
     creator: "@hyjoong",
     images: [
       {
