@@ -16,7 +16,7 @@ const Header = ({ title, icon }: IProps) => {
   return (
     <HeaderWrapper>
       {icon === "menu" ? (
-        <MenuButton>
+        <MenuButton className="menuButton">
           <MenuIcon />
         </MenuButton>
       ) : (

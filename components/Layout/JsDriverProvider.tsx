@@ -15,11 +15,11 @@ const driverObj = driver({
   popoverClass: "driverjs-theme",
   steps: [
     {
-      element: ".deLvMt",
+      element: ".menuButton",
       popover: { description: "메뉴 버튼을 클릭하면 사이드바가 나타납니다." },
     },
     {
-      element: ".dRIXEg",
+      element: ".categoryBox",
       popover: {
         description:
           "특정 카테고리 버튼을 클릭하면 해당 카테고리의 상품들을 볼 수 있습니다.",
