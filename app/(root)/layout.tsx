@@ -1,3 +1,4 @@
+import JsDriverProvider from "components/Layout/JsDriverProvider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,10 +25,10 @@ export default function RootLayout({
   sales: React.ReactNode;
 }) {
   return (
-    <div>
+    <JsDriverProvider>
       {children}
       {category}
       {sales}
-    </div>
+    </JsDriverProvider>
   );
 }
