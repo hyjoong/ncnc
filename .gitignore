@@ -28,3 +28,8 @@ out
 
 node_modules.nosync/
 *.env.*
+.env*.local
+.vercel
+sw.*
+workbox-*
+swe-worker-*
