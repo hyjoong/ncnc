@@ -6,6 +6,29 @@ import { Registry } from "./ui/Registry";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  title: "니콘내콘",
+  description:
+    "기프티콘 판매 및 구매 1위 플랫폼, 스타벅스 기프티콘부터 모바일상품권까지 일상에서의 할인을 받아보세요.",
+  themeColor: "#ffc211",
+  manifest: "/manifest.json",
+  viewport:
+    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
+
+  verification: {
+    google: "Ldsw3HdA79_kyMAjRpsoY-3gkz9EEn5jWEjWA-02sww",
+  },
+  icons: [
+    { rel: "icon", url: "/assets/logo-192x192.png", sizes: "192x192" },
+    {
+      rel: "apple-touch-icon",
+      url: "/assets/logo-180x180.png",
+      sizes: "180x180",
+    },
+    { rel: "icon", url: "/assets/logo-152x152.png", sizes: "152x152" },
+    { rel: "icon", url: "/assets/logo-144x144.png", sizes: "144x144" },
+    { rel: "icon", url: "/assets/logo-120x120.png", sizes: "120x120" },
+    { rel: "icon", url: "/assets/logo-114x114.png", sizes: "114x114" },
+  ],
   twitter: {
     card: "summary_large_image",
     title: "니콘내콘",

@@ -1,5 +1,15 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+
+const runtimeCaching = require("next-pwa/cache");
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  runtimeCaching,
+  disable: process.env.NODE_ENV === "development",
+});
+
+module.exports = withPWA({
   reactStrictMode: true,
   experimental: {
     appDir: true,
@@ -18,7 +28,7 @@ module.exports = {
     minimumCacheTTL: 2678400,
     formats: ["image/avif", "image/webp"],
   },
-};
+});
 
 // Injected content via Sentry wizard below
 
@@ -54,5 +64,5 @@ module.exports = withSentryConfig(
 
     // Automatically tree-shake Sentry logger statements to reduce bundle size
     disableLogger: true,
-  }
+  },
 );
