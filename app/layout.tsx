@@ -5,11 +5,14 @@ import styles from "./layout.module.css";
 import { Registry } from "./ui/Registry";
 import "./globals.css";
 
+export const viewport = {
+  themeColor: "#ffffff",
+};
+
 export const metadata: Metadata = {
   title: "니콘내콘",
   description:
     "기프티콘 판매 및 구매 1위 플랫폼, 스타벅스 기프티콘부터 모바일상품권까지 일상에서의 할인을 받아보세요.",
-  themeColor: "#ffc211",
   manifest: "/manifest.json",
   viewport:
     "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
