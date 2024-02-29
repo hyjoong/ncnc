@@ -31,6 +31,12 @@ export const metadata: Metadata = {
     { rel: "icon", url: "/assets/logo-144x144.png", sizes: "144x144" },
     { rel: "icon", url: "/assets/logo-120x120.png", sizes: "120x120" },
     { rel: "icon", url: "/assets/logo-114x114.png", sizes: "114x114" },
+    {
+      url: "/splashscreens/iphoneplus_splash.png",
+      media:
+        "(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)",
+      rel: "apple-touch-startup-image",
+    },
   ],
   twitter: {
     card: "summary_large_image",
