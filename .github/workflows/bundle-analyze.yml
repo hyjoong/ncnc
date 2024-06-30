@@ -27,7 +27,12 @@ jobs:
         uses: transferwise/actions-next-bundle-analyzer@master
         with:
           workflow-id: CI.yml
-          base-branch: main
+          base-branch: master
+          pages:
+            MainPage: "/"
+            BrandPage: "/brand/67"
+            ItemListPage: "/itemlist/63"
+            ItemPage: "/item/137"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NEXT_PUBLIC_URI: ${{ secrets.NEXT_PUBLIC_URI }}
