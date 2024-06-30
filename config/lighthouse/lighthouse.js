@@ -30,7 +30,7 @@ module.exports = {
    * @param {string} url
    * @returns {string} 페이지 이름
    */
-  getLhciPageNameFromUrl(url: string): string | undefined {
+  getLhciPageNameFromUrl(url) {
     const decodedUrl = decodeURIComponent(url);
     return Object.keys(this.LHCI_PAGE_NAME_TO_URL).find(
       (name) =>
