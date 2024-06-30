@@ -1,12 +1,12 @@
 name: Run Lighthouse CI
 
 on:
+  push:
+    branches:
+      - "*"
   pull_request:
     branches:
-      - master
-    types:
-      - opened
-      - synchronize
+      - "*"
 
 permissions:
   contents: read
