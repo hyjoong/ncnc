@@ -1,0 +1,37 @@
+.driver-popover.driverjs-theme {
+  background-color: #ecf0f1; /* 자연스러운 배경 색상으로 변경 */
+  color: #333; /* 조정된 텍스트 색상 */
+  padding: 20px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-description {
+  font-size: 16px;
+  color: #333; /* 텍스트 색상 조정 */
+}
+
+.driver-popover.driverjs-theme .driver-popover-progress-text {
+  color: #ecf0f1;
+}
+
+.driver-popover.driverjs-theme button {
+  flex: 1;
+  text-align: center;
+  text-shadow: none;
+  font-size: 16px; /* 버튼 폰트 크기 증가 */
+  border-radius: 8px; /* 버튼 테두리를 조금 더 둥글게 변경 */
+}
+
+.driver-popover.driverjs-theme .driver-popover-navigation-btns {
+  /* display: flex; */
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn {
+  color: #555; /* 닫기 버튼 색상 변경 */
+  display: none;
+}
+
+.driver-popover.driverjs-theme .driver-popover-close-btn:hover {
+  color: #333; /* 닫기 버튼 호버 시 색상 변경 */
+}
