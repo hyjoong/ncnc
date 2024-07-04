@@ -18,14 +18,14 @@ export default function Modal({ children }: { children: React.ReactNode }) {
         if (onDismiss) onDismiss();
       }
     },
-    [onDismiss, overlay, wrapper]
+    [onDismiss, overlay, wrapper],
   );
 
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
       if (e.key === "Escape") onDismiss();
     },
-    [onDismiss]
+    [onDismiss],
   );
 
   useEffect(() => {
@@ -60,4 +60,14 @@ const Wrapper = styled.div`
   width: 70%;
   max-width: 80%;
   padding: 1.5rem;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    max-width: 90%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 100%;
+  }
 `;
