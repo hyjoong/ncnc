@@ -56,6 +56,10 @@ const CategoryBox = styled.div<{ type: string }>`
     css`
       cursor: pointer;
     `}
+
+  @media (max-width: 480px) {
+    padding: 10px 15px;
+  }
 `;
 
 const ItemContent = styled.div`
