@@ -44,13 +44,15 @@ const DetailContainer = styled.div<{ isMenu: boolean }>`
   height: 100%;
   background-color: #ffffff;
   min-height: calc(100vh - 191px);
+  max-height: calc(100vh - 191px);
+  overflow: hidden;
 `;
 
 const DetailContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  max-height: 300px;
+  flex-grow: 1;
   overflow-y: auto;
 `;
 
