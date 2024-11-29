@@ -71,7 +71,6 @@ const ItemContent = styled.div`
 `;
 
 const ItemName = styled.div`
-  margin-top: 12px;
   font-size: 0.7rem;
   font-weight: 600;
 `;
