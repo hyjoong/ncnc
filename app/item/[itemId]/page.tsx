@@ -3,20 +3,24 @@ import { Metadata } from "next";
 import Header from "components/common/Header";
 import ItemContainer from "components/Item/ItemContainer";
 
-type Params = { params: { itemId: string } };
+type Params = Promise<{ itemId: string }>;
 
 const getItemData = async (itemId: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URI}/con-items//${itemId}`,
-    { cache: "no-store" }
+    `${process.env.NEXT_PUBLIC_URI}/con-items/${itemId}`,
+    { cache: "no-store" },
   );
   const data = await res.json();
   return data.conItem;
 };
 
 export const generateMetadata = async ({
-  params: { itemId },
-}: Params): Promise<Metadata> => {
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> => {
+  const { itemId } = await params;
+
   try {
     const itemInfo = await getItemData(Number(itemId));
 
@@ -47,7 +51,8 @@ export const generateMetadata = async ({
   }
 };
 
-export default async function ({ params: { itemId } }: Params) {
+export default async function Page({ params }: { params: Params }) {
+  const { itemId } = await params;
   const itemInfo = await getItemData(Number(itemId));
 
   return (

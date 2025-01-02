@@ -4,12 +4,15 @@ import ListContainer from "components/itemList/listContainer";
 import Header from "components/common/Header";
 import { Brand, BrandItemListType } from "types";
 
-type Params = { params: { id: string } };
+type Params = Promise<{ id: string }>;
 
 const getbrandItemList = async (id: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URI}/con-items/?conCategory2Id=${id}`,
-    { next: { revalidate: 86400, tags: ["itemList-items"] } }
+    {
+      cache: "force-cache",
+      next: { revalidate: 86400, tags: ["itemList-items"] },
+    },
   );
   const data = await res.json();
   return data;
@@ -18,15 +21,19 @@ const getbrandItemList = async (id: string) => {
 const getBrandInfo = async (id: string): Promise<Brand> => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URI}/con-category2s/${id}`,
-    { next: { revalidate: 86400, tags: ["itemList-brand"] } }
+    { next: { revalidate: 86400, tags: ["itemList-brand"] } },
   );
   const data = await res.json();
   return data;
 };
 
 export const generateMetadata = async ({
-  params: { id },
-}: Params): Promise<Metadata> => {
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> => {
+  const { id } = await params;
+
   try {
     const brandInfo = await getBrandInfo(id);
 
@@ -57,7 +64,9 @@ export const generateMetadata = async ({
   }
 };
 
-export default async function ({ params: { id } }: Params) {
+export default async function Page({ params }: { params: Params }) {
+  const { id } = await params;
+
   const brandInfo = await getBrandInfo(id);
   const brandItemList = await getbrandItemList(id);
   return (
@@ -78,8 +87,8 @@ export async function generateStaticParams() {
 
   const fetchPromises = data.conCategory1s.map(({ id }) =>
     fetch(`${process.env.NEXT_PUBLIC_URI}/con-category1s/${id}/nested`).then(
-      (res) => res.json()
-    )
+      (res) => res.json(),
+    ),
   );
   const brandCategories = await Promise.all(fetchPromises);
 

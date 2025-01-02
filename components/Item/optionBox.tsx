@@ -8,7 +8,7 @@ interface IProps {
   handleMenu: () => void;
   lists: Option[];
   discount: number;
-  listRef: React.RefObject<HTMLDivElement>;
+  listRef: React.RefObject<HTMLDivElement | null>;
   selectOption: string;
   setIsMenu: React.Dispatch<React.SetStateAction<boolean>>;
   setSelectOption: React.Dispatch<React.SetStateAction<string>>;
