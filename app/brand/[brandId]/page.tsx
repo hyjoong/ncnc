@@ -1,21 +1,21 @@
 import React from "react";
 import BrandList from "components/Brand/BrandList";
 import Header from "components/common/Header";
-import { Metadata } from "next";
 
-type Params = { params: { brandId: string } };
+type Params = Promise<{ brandId: string }>;
 
 const getBrandData = async (brandId: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URI}/con-category1s/${brandId}/nested`
+    `${process.env.NEXT_PUBLIC_URI}/con-category1s/${brandId}/nested`,
+    { cache: "force-cache" },
   );
   const data = await res.json();
   return data.conCategory1;
 };
 
-export const generateMetadata = async ({
-  params: { brandId },
-}: Params): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: { params: Params }) => {
+  const { brandId } = await params;
+
   try {
     const data = await getBrandData(Number(brandId));
 
@@ -46,7 +46,9 @@ export const generateMetadata = async ({
   }
 };
 
-export default async function Page({ params: { brandId } }: Params) {
+export default async function Page(props: { params: Params }) {
+  const { brandId } = await props.params;
+
   const data = await getBrandData(Number(brandId));
   return (
     <>
