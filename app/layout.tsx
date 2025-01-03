@@ -1,11 +1,15 @@
-import { Metadata } from "next";
+import { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 import styles from "./layout.module.css";
 import { Registry } from "./ui/Registry";
 import "./globals.css";
 
-export const viewport = {
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  minimumScale: 1,
+  viewportFit: "cover",
   themeColor: "#ffffff",
 };
 
@@ -14,9 +18,6 @@ export const metadata: Metadata = {
   description:
     "기프티콘 판매 및 구매 1위 플랫폼, 스타벅스 기프티콘부터 모바일상품권까지 일상에서의 할인을 받아보세요.",
   manifest: "/manifest.json",
-  viewport:
-    "minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover",
-
   verification: {
     google: "Ldsw3HdA79_kyMAjRpsoY-3gkz9EEn5jWEjWA-02sww",
   },
